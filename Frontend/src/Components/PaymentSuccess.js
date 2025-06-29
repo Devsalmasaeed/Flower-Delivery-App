@@ -8,7 +8,7 @@ const PaymentSuccess = () => {
 
   useEffect(() => {
     if (sessionId) {
-      fetch(`https://flower-delivery-backend.onrender.com/api/payments/session/${sessionId}`)
+      fetch(`https://backend-iq9m.onrender.com/api/payments/session/${sessionId}`)
         .then((res) => res.json())
         .then((data) => {
           setSessionData(data);

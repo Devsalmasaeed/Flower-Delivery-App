@@ -12,7 +12,7 @@ const SignUp = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://flower-delivery-backend.onrender.com/api/users/register", {
+      const response = await fetch("https://backend-iq9m.onrender.com/api/users/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, password }),

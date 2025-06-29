@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../App.css"; // Import styles
-import Image from "./assets/flower.png";
+import "../App.css"; 
 import human from "./assets/human.png";
 import wedding from "./assets/wedding.png"
 import { FaPhone } from "react-icons/fa";
@@ -26,7 +25,7 @@ const Home = () => {
   });
 
   const navigate = useNavigate();
-  const API_URL = process.env.REACT_APP_API_URL || 'https://flower-delivery-backend.onrender.com';
+  const API_URL = process.env.REACT_APP_API_URL || 'https://backend-iq9m.onrender.com';
 
   useEffect(() => {
     const imageMap = {

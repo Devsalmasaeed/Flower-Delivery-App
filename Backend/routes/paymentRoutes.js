@@ -45,8 +45,8 @@ router.post("/create-checkout-session", async (req, res) => {
       line_items,
       mode: "payment",
       success_url:
-        "https://frontend-ds87.onrender.com/payment-success?session_id={CHECKOUT_SESSION_ID}",
-      cancel_url: "https://frontend-ds87.onrender.com/Home",
+        "https://flower-delivery-app-frontend.onrender.com/payment-success?session_id={CHECKOUT_SESSION_ID}",
+      cancel_url: "https://flower-delivery-app-frontend.onrender.com/Home",
     });
 
     console.log("✅ Stripe session created:", session.id);

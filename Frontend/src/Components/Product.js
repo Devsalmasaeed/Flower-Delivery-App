@@ -14,7 +14,7 @@ const Product = () => {
     const token = localStorage.getItem("token");
     setIsAuthenticated(!!token);
 
-    const apiUrl = process.env.REACT_APP_API_URL || "https://flower-delivery-backend.onrender.com";
+    const apiUrl = process.env.REACT_APP_API_URL || "https://backend-iq9m.onrender.com";
 
     fetch(`${apiUrl}/api/flowers/${id}`)
       .then((res) => res.json())

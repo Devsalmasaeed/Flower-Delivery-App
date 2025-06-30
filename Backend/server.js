@@ -2,11 +2,20 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const passport = require('passport');
+const fs = require('fs');
+const path = require('path');
 require('dotenv').config();
 
 // App Init
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// 🔧 Ensure /uploads folder exists
+const uploadsDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir);
+  console.log('/uploads folder created');
+}
 
 // Middleware
 app.use(cors());

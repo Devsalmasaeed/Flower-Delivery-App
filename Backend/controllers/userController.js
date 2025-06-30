@@ -1,32 +1,32 @@
-const User = require("../models/userModel");
-// Register User
-const registerUser = async (req, res) => {
+const jwt = require('jsonwebtoken');
+const User = require('../models/userModel');
+
+const createToken = (id) => {
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '3d' });
+};
+
+// SIGN UP
+exports.signupUser = async (req, res) => {
+  const { email, password } = req.body;
+
   try {
-    const { name, email, password } = req.body;
-    const user = await User.signup(name, email, password);
-    res.status(201).json({ message: "User registered successfully", user });
-  } catch (error) {
-    res.status(400).json({ message: error.message });
+    const user = await User.signup(email, password);
+    const token = createToken(user._id);
+    res.status(200).json({ email, token });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
   }
 };
-//Login User
-const loginUser = async (req, res) => {
+
+// LOGIN
+exports.loginUser = async (req, res) => {
+  const { email, password } = req.body;
+
   try {
-    const { email, password } = req.body;
-    const { user, token } = await User.login(email, password);
-    res.status(200).json({ message: "Login successful", token, user });
-  } catch (error) {
-    res.status(400).json({ message: error.message });
+    const user = await User.login(email, password);
+    const token = createToken(user._id);
+    res.status(200).json({ email, token });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
   }
 };
-// Gets the User Profile
-const getUserProfile = async (req, res) => {
-  try {
-    const user = await User.findById(req.user.userId).select("-password");
-    if (!user) return res.status(404).json({ message: "User not found" });
-    res.status(200).json(user);
-  } catch (error) {
-    res.status(500).json({ message: "Error retrieving profile", error: error.message });
-  }
-};
-module.exports = { registerUser, loginUser, getUserProfile };

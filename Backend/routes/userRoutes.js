@@ -1,11 +1,22 @@
-const express = require("express");
-const { registerUser, loginUser, getUserProfile } = require("../controllers/userController");
-const authMiddleware = require("../middleware/authMiddleware");
-
+const express = require('express');
 const router = express.Router();
+const { signupUser, loginUser } = require('../controllers/userController');
+const passport = require('passport');
 
-router.post("/register", registerUser);
-router.post("/signin", loginUser); 
-router.get("/profile", authMiddleware, getUserProfile);
 
-module.exports = router; 
+
+router.get(
+  '/secure',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    res.json({ message: "You are authorized", user: req.user });
+  }
+);
+
+// Sign up
+router.post('/signup', signupUser);
+
+// Login
+router.post('/login', loginUser);
+
+module.exports = router;

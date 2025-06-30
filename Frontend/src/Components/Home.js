@@ -31,7 +31,7 @@ const Home = () => {
     const imageMap = {
       heroImage: "6838660f380b2d047adca72f",
       freshFlowers: "6838660f380b2d047adca72f",
-      driedFlowers: "6838660f380b2d047adca72f",
+      driedFlowers: "686291cde17ab9cf235df63b",
       livePlants: "6838660f380b2d047adca72f",
       aromaCandles: "6838660f380b2d047adca72f",
       fresheners: "6838660f380b2d047adca72f",

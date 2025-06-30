@@ -21,11 +21,13 @@ form label {
 }
 
 form input,
-form textarea {
+form textarea,
+form select {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 16px;
+  width: 100%;
 }
 
 form textarea {
@@ -35,7 +37,7 @@ form textarea {
 
 form button {
   margin-top: 20px;
-  background-color: #4CAF50;
+  background-color: #333;
   color: white;
   padding: 12px;
   font-size: 16px;
@@ -48,6 +50,7 @@ form button:hover {
   background-color: #3e8e41;
 }
 
+/* Popup Message */
 .popup {
   margin-top: 20px;
   background-color: #e0ffe0;
@@ -56,4 +59,43 @@ form button:hover {
   border: 1px solid #b6f2b6;
   border-radius: 6px;
   animation: fade 0.3s ease-in-out;
+}
+
+/* Image Upload Box */
+.image-upload-box {
+  width: 150px;
+  height: 150px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.upload-placeholder {
+  text-align: center;
+  color: #999;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Row for Category and Price side by side */
+.row {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }

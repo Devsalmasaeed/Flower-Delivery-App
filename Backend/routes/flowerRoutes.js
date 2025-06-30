@@ -1,12 +1,24 @@
 const express = require('express');
 const router = express.Router();
 const multer = require('multer');
-const { CloudinaryStorage } = require('multer-storage-cloudinary');
-const cloudinary = require('../utils/cloudinary');
 const flowerController = require('../controllers/flowerController');
 const passport = require('passport');
 
-// 🔐 Auth test route (optional)
+// Cloudinary Multer setup
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
+const cloudinary = require('../config/cloudinary'); // ✅ You must have this file configured
+
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: 'flowers',
+    allowed_formats: ['jpg', 'jpeg', 'png'],
+  },
+});
+
+const upload = multer({ storage });
+
+// ✅ Auth route
 router.get(
   '/secure',
   passport.authenticate('jwt', { session: false }),
@@ -15,17 +27,7 @@ router.get(
   }
 );
 
-// 🌩 Cloudinary + Multer setup
-const storage = new CloudinaryStorage({
-  cloudinary: cloudinary,
-  params: {
-    folder: 'flowers',
-    allowed_formats: ['jpg', 'jpeg', 'png'],
-  },
-});
-const upload = multer({ storage });
-
-// 🌸 Flower Routes
+// ✅ Flower routes
 router.post('/', upload.single('image'), flowerController.addFlower);
 router.get('/', flowerController.getFlowers);
 router.delete('/:id', flowerController.deleteFlower);

@@ -30,7 +30,7 @@ const FlowerList = () => {
       <div className="flower-grid">
         {flowers.map(flower => (
           <div key={flower._id} className="flower-card">
-            <img src={`${process.env.REACT_APP_API_URL}/${flower.image}`} alt={flower.name} />
+            <img src={flower.image} alt={flower.name} />
             <p><strong>Name:</strong> {flower.name}</p>
             <p><strong>Category:</strong> {flower.category}</p>
             <p><strong>Price:</strong> ${flower.price}</p>

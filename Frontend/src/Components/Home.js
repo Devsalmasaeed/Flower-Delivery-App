@@ -29,12 +29,11 @@ const Home = () => {
 
   useEffect(() => {
     const imageMap = {
-      heroImage: "6838660f380b2d047adca72f",
-      freshFlowers: "6838660f380b2d047adca72f",
-      driedFlowers: "686291cde17ab9cf235df63b",
-      livePlants: "6838660f380b2d047adca72f",
-      aromaCandles: "6838660f380b2d047adca72f",
-      fresheners: "6838660f380b2d047adca72f",
+      heroImage: "6862ba0f086021e9dec8b987",
+      freshFlowers: "6862b259f8147c9af0693983",
+      driedFlowers: "6862b2e1f8147c9af0693985",
+      livePlants: "6862b8fe086021e9dec8b97e",
+      aromaCandles: "6862b967086021e9dec8b983",
     };
 
     fetch(`${API_URL}/api/flowers`) // Fetch all flowers first
@@ -43,11 +42,12 @@ const Home = () => {
         const updatedImages = {};
 
         for (const [key, id] of Object.entries(imageMap)) {
-          const flower = data.find(item => item._id === id);
-          if (flower) {
-            updatedImages[key] = `${API_URL}${flower.image}`; // Use the correct image path from the flower data
-          }
-        }
+  const flower = data.find(item => item._id === id);
+  if (flower) {
+    updatedImages[key] = flower.image; // Use direct Cloudinary URL
+  }
+}
+
 
         setImages(updatedImages);
       })

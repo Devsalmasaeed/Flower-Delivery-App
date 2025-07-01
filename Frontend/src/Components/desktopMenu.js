@@ -1,30 +1,23 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import AuthContext from "./AuthContext"; // adjust the path if needed
 import "../App.css";
 
 const DesktopMenu = ({ onCartClick }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token);
-  }, []);
+  const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSignOut = () => {
-    localStorage.removeItem("token");
-    setIsLoggedIn(false);
-    window.location.href = "/";
+    logout();
+    navigate("/"); // redirect after logout
   };
 
   return (
     <div className="desktop-menu-container">
       <Link to="/product" className="menu-item">Shop</Link>
-
       <Link to="/contact" className="menu-item">Contact</Link>
 
-      <div className="menu-item"></div>
-
-      {!isLoggedIn ? (
+      {!user ? (
         <Link to="/signin" className="menu-item">Sign in</Link>
       ) : (
         <div className="menu-item" onClick={handleSignOut} style={{ cursor: "pointer" }}>

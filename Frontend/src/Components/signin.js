@@ -13,7 +13,7 @@ const SignIn = () => {
     setLoading(true);
 
     try {
-      const response = await fetch("https://backend-iq9m.onrender.com/api/users/signin", {
+      const response = await fetch("https://backend-iq9m.onrender.com/api/users/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),

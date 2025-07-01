@@ -22,6 +22,7 @@ app.use(cors());
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
 
+
 // Passport config
 require('./config/passport');
 app.use(passport.initialize());
@@ -29,9 +30,14 @@ app.use(passport.initialize());
 // Routes
 const flowerRoutes = require('./routes/flowerRoutes');
 const userRoutes = require('./routes/userRoutes');
+const paymentRoutes = require('./routes/paymentRoutes');
+
 
 app.use('/api/flowers', flowerRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/payments', paymentRoutes);
+
+
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGODB_URI, {

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   FaBars,
   FaTimes,
@@ -11,23 +11,19 @@ import {
   FaTelegram,
 } from "react-icons/fa";
 
+import AuthContext from "./AuthContext"; // make sure the path is correct
 import "../App.css";
 import "./signin.css";
 
 const MobileMenu = ({ onCartClick }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token);
-  }, []);
+  const { user, logout } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSignOut = () => {
-    localStorage.removeItem("token");
-    setIsLoggedIn(false);
+    logout();
     setIsOpen(false);
-    window.location.href = "/"; // Optional: redirect after sign out
+    navigate("/");
   };
 
   return (
@@ -48,7 +44,7 @@ const MobileMenu = ({ onCartClick }) => {
           <FaTimes />
         </button>
         <ul>
-          {!isLoggedIn ? (
+          {!user ? (
             <li>
               <Link to="/signin" onClick={() => setIsOpen(false)}>
                 Sign in
@@ -99,21 +95,11 @@ const MobileMenu = ({ onCartClick }) => {
         </div>
 
         <div className="social-icons">
-          <a href="#">
-            <FaInstagram />
-          </a>
-          <a href="#">
-            <FaPinterest />
-          </a>
-          <a href="#">
-            <FaFacebook />
-          </a>
-          <a href="#">
-            <FaTwitter />
-          </a>
-          <a href="#">
-            <FaTelegram />
-          </a>
+          <a href="#"><FaInstagram /></a>
+          <a href="#"><FaPinterest /></a>
+          <a href="#"><FaFacebook /></a>
+          <a href="#"><FaTwitter /></a>
+          <a href="#"><FaTelegram /></a>
         </div>
       </nav>
     </>

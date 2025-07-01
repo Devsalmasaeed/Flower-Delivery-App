@@ -6,7 +6,7 @@ const passport = require('passport');
 
 // Cloudinary Multer setup
 const { CloudinaryStorage } = require('multer-storage-cloudinary');
-const cloudinary = require('../config/cloudinary'); // ✅ You must have this file configured
+const cloudinary = require('../utils/cloudinary'); // ✅ You must have this file configured
 
 const storage = new CloudinaryStorage({
   cloudinary,

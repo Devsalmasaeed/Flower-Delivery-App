@@ -54,7 +54,7 @@ const AddFlower = () => {
   return (
     <div className="add-flower-page">
       <h2>Add Flower</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} encType="multipart/form-data">
         <label>Image</label>
         <div className="image-upload-box">
           <label htmlFor="fileInput" className="upload-label">

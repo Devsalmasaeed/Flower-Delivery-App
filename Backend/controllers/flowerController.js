@@ -1,6 +1,5 @@
 const Flower = require('../models/flowerModel');
 const cloudinary = require('../utils/cloudinary');
-const fs = require('fs');
 
 // ✅ ADD FLOWER
 exports.addFlower = async (req, res) => {
@@ -8,12 +7,9 @@ exports.addFlower = async (req, res) => {
   let image = '';
 
   try {
+    // Cloudinary URL is already available from multer-storage-cloudinary
     if (req.file?.path) {
-      const result = await cloudinary.uploader.upload(req.file.path);
-      image = result.secure_url;
-
-      // Delete local file after upload
-      fs.unlinkSync(req.file.path);
+      image = req.file.path; // Already uploaded and accessible
     }
 
     const flower = new Flower({ name, category, price, description, image });

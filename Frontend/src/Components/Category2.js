@@ -17,16 +17,17 @@ const Category = () => {
       .then((res) => res.json())
       .then((data) => {
         const flowerIds = [
-          "6838660f380b2d047adca72f",
-          "6838660f380b2d047adca72f",
-          "6838660f380b2d047adca72f",
-          "6838660f380b2d047adca72f",
-          "6838660f380b2d047adca72f",
-          "6838660f380b2d047adca72f",
-          "6838660f380b2d047adca72f",
-          "6838660f380b2d047adca72f",
-          "6838660f380b2d047adca72f",
-          "6838660f380b2d047adca72f",
+          "6863da7a1e3d179531db02d3",
+          "6863ddd41e3d179531db02d6",
+          "6863de1c1e3d179531db02d8",
+          "6863de5d1e3d179531db02da",
+          "6863deaa1e3d179531db02dc",
+          "6863d9471e3d179531db02cb",
+          "6863d8f41e3d179531db02c9",
+          "6863d9801e3d179531db02cd",
+          "6863d9c31e3d179531db02cf",
+          "6863da371e3d179531db02d1",
+          
         ];
         const freshFlowers = data.filter((flower) =>
           flowerIds.includes(flower._id)
@@ -53,9 +54,9 @@ const Category = () => {
                 className="flower-card"
               >
                 <img
-                  src={`${process.env.REACT_APP_API_URL || 'https://backend-iq9m.onrender.com'}${flower.image}`}
-                  alt={flower.name}
-                  className="flower-image"
+                    src={flower.image}
+                    alt={flower.name}
+                    className="flower-image"
                 />
               </Link>
             ))

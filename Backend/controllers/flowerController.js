@@ -45,3 +45,16 @@ exports.deleteFlower = async (req, res) => {
     res.status(500).json({ error: err.message });
   }
 };
+// ✅ GET FLOWER BY ID
+exports.getFlowerById = async (req, res) => {
+  try {
+    const flower = await Flower.findById(req.params.id);
+    if (!flower) {
+      return res.status(404).json({ error: 'Flower not found' });
+    }
+    res.status(200).json(flower);
+  } catch (err) {
+    console.error("Get Flower By ID Error:", err.message);
+    res.status(500).json({ error: err.message });
+  }
+};

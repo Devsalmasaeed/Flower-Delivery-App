@@ -31,5 +31,7 @@ router.get(
 router.post('/', upload.single('image'), flowerController.addFlower);
 router.get('/', flowerController.getFlowers);
 router.delete('/:id', flowerController.deleteFlower);
+router.get('/:id', flowerController.getFlowerById);
+
 
 module.exports = router;

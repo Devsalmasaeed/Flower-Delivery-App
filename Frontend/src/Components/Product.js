@@ -20,9 +20,10 @@ const Product = () => {
       .then((res) => res.json())
       .then((data) => {
         setFlower({
-          ...data,
-          imageUrl: `${apiUrl}${data.image}`,
-        });
+        ...data,
+        imageUrl: data.image, // use directly as it's a full URL
+      });
+
       })
       .catch((error) => console.error("Error fetching flower:", error));
   }, [id]);

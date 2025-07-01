@@ -29,11 +29,11 @@ const Home = () => {
 
   useEffect(() => {
     const imageMap = {
-      heroImage: "6862ba0f086021e9dec8b987",
-      freshFlowers: "6862b259f8147c9af0693983",
-      driedFlowers: "6862b2e1f8147c9af0693985",
-      livePlants: "6862b8fe086021e9dec8b97e",
-      aromaCandles: "6862b967086021e9dec8b983",
+      heroImage: "6863cf19d45122380f9bbfee",
+      freshFlowers: "6863ce54d45122380f9bbfe5",
+      driedFlowers: "6863ce98d45122380f9bbfe8",
+      livePlants: "6863cec4d45122380f9bbfea",
+      aromaCandles: "6863cefbd45122380f9bbfec",
     };
 
     fetch(`${API_URL}/api/flowers`) // Fetch all flowers first

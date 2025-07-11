@@ -36,7 +36,7 @@ const Home = () => {
       aromaCandles: "6863cefbd45122380f9bbfec",
     };
 
-    fetch(`${API_URL}/api/flowers`) // Fetch all flowers first
+    fetch(`${API_URL}/api/flowers`) 
       .then(res => res.json())
       .then(data => {
         const updatedImages = {};
@@ -44,7 +44,7 @@ const Home = () => {
         for (const [key, id] of Object.entries(imageMap)) {
   const flower = data.find(item => item._id === id);
   if (flower) {
-    updatedImages[key] = flower.image; // Use direct Cloudinary URL
+    updatedImages[key] = flower.image; 
   }
 }
 
@@ -103,19 +103,19 @@ const Home = () => {
          </div>
          <div className="category">
            <img src={images.livePlants} alt="Live Plants" />
-         </div>
-       
-         <div className="category">
-           <img src={images.aromaCandles} alt="Aroma Candles" />
-         </div>
-         <div className="category">
-           <p>Aroma Candles</p>
-           <Link to="/Category3" className="shop-cat">Shop now →</Link> 
+          </div>
+        
+          <div className="category">
+            <img src={images.aromaCandles} alt="Aroma Candles" />
+          </div>
+          <div className="category">
+            <p>Aroma Candles</p>
+            <Link to="/Category3" className="shop-cat">Shop now →</Link> 
 
-         </div>
+          </div>
             </section>
       </div>
-     
+      
 <div className="about">
       <section className="about-header">
         <h1>About us</h1>
@@ -182,10 +182,10 @@ const Home = () => {
         </p>
       </div>
     </section>
-     
+      
     </div>
-   <div className="img-contact-card">
-   <section className="image-section">
+    <div className="img-contact-card">
+    <section className="image-section">
   <img src={Contact} alt="Beautiful flower" className="custom-img" />
 </section>
 <section className="contact-section">
@@ -217,14 +217,14 @@ const Home = () => {
   </div>
 </section>
 
-   </div>
+    </div>
     
     <section className="section-container">
     <h1 className="service-title">Our Service</h1>
 
     </section>
     <div className="container-desk-under">
-       
+      
       <section className="image-section">
       <img src={human} alt="Woman with flowers" className="custom-img" />
 

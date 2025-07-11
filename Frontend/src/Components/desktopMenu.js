@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import AuthContext from "./AuthContext"; // adjust the path if needed
+import AuthContext from "./AuthContext"; 
 import "../App.css";
 
 const DesktopMenu = ({ onCartClick }) => {
@@ -9,7 +9,7 @@ const DesktopMenu = ({ onCartClick }) => {
 
   const handleSignOut = () => {
     logout();
-    navigate("/"); // redirect after logout
+    navigate("/"); 
   };
 
   return (

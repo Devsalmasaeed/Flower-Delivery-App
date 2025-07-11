@@ -39,10 +39,9 @@ const OurStory = () => {
       
     
       <section className="about-image-container">
-         <img src={flowerlady} alt="Beautiful Flower Arrangement" className="about-image" />
+          <img src={flowerlady} alt="Beautiful Flower Arrangement" className="about-image" />
       </section>
       </div>
-     
       <div className="founders-passion">
         <h2 className="section-title">Our Story</h2>
         <h3 className="passion-title">Our Founder's Passion</h3>
@@ -52,7 +51,7 @@ const OurStory = () => {
       </div>
       <div className="carfted-con-gr">
       <section className="about-image-container-1">
-         <img src={flowerladys} alt="Beautiful Flower Arrangement" className="about-image-1" />
+          <img src={flowerladys} alt="Beautiful Flower Arrangement" className="about-image-1" />
       </section>
       <section className="bouquet-container">
         <div className="bouquet-content">
@@ -65,7 +64,7 @@ const OurStory = () => {
         </div>
       </section>
       <section className="parlour-image-container">
-         <img src={flowerladyss} alt="Beautiful Flower Arrangement" className="parlour-image" />
+          <img src={flowerladyss} alt="Beautiful Flower Arrangement" className="parlour-image" />
       </section>
       <section className="bouquet-info-container">
         <div className="bouquet-info-content">
@@ -77,7 +76,7 @@ const OurStory = () => {
         </div>
       </section>
       <section className="pink-image-container">
-         <img src={flowerladysy} alt="Beautiful Flower Arrangement" className="pink-image" />
+          <img src={flowerladysy} alt="Beautiful Flower Arrangement" className="pink-image" />
       </section>
       <section className="bouquet-info-container">
         <div className="bouquet-info-content">
@@ -89,7 +88,7 @@ const OurStory = () => {
         </div>
       </section>
         </div>
-     
+    
       <div className="bouquet-info-container-1">
         <div className="bouquet-info-content">
           <h2>Discover Our</h2>

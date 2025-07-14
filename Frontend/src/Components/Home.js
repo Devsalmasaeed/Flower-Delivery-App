@@ -33,7 +33,7 @@ const Home = () => {
       freshFlowers: "6863ce54d45122380f9bbfe5",
       driedFlowers: "6863ce98d45122380f9bbfe8",
       livePlants: "6863cec4d45122380f9bbfea",
-      aromaCandles: "6863cefbd45122380f9bbfec",
+      aromaCandles: "687506ecd98e226a19669e50",
     };
 
     fetch(`${API_URL}/api/flowers`) 
